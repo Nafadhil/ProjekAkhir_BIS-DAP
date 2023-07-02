@@ -239,8 +239,12 @@ class Job extends BaseController
 
     public function viewpdf()
     {
+        $umkm = $this->umkmdataModel->findAll();
+        $data = [
+            'umkmdata' => $umkm
+        ];
         $dompdf = new Dompdf();
-        $dompdf->loadHtml(view('umkmdata/view'));
+        $dompdf->loadHtml(view('umkmdata/view', $data));
         $dompdf->setPaper('A4', 'landscape');
         $dompdf->render();
 
