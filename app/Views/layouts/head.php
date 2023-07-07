@@ -5,6 +5,9 @@
         <?= $tittle; ?>
     </title>
 
+    <!-- Logo Website Files -->
+    <link rel="icon" href="<?= base_url() ?>/template2/dist/assets/img/rhn.png" type="image/png">
+
     <!-- General CSS Files -->
     <link rel="stylesheet" href="<?= base_url() ?>/template2/dist/assets/modules/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/template2/dist/assets/modules/fontawesome/css/all.min.css">

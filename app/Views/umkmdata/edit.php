@@ -19,7 +19,7 @@
                             <div class="mb-3">
                                 <label for="tanggal" class="form-label">Tanggal</label>
                                 <input type="datetime-local" class="form-control" id="tanggal" name="tanggal"
-                                    value="<?= $job['tanggal'] ?>" style="height: 50px;">
+                                    value="<?= date('Y-m-d\TH:i', strtotime($job['tanggal'])) ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama</label>
@@ -28,9 +28,9 @@
                             </div>
                             <div class="mb-3">
                                 <label for="kelamin" class="form-label">Kelamin</label>
-                                <select class="form-control" id="kelamin" name="kelamin" value="<?= $job['kelamin'] ?>">
-                                    <option value="Pria">Pria</option>
-                                    <option value="Wanita">Wanita</option>
+                                <select class="form-control" id="kelamin" name="kelamin">
+                                    <option value="Laki-laki" <?= ($job['jns_kelamin'] == 'Laki-laki') ? 'selected' : ''; ?>>Laki-laki</option>
+                                    <option value="Perempuan" <?= ($job['jns_kelamin'] == 'Perempuan') ? 'selected' : ''; ?>>Perempuan</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -65,12 +65,13 @@
                             </div>
                             <div class="mb-3">
                                 <label for="kategori" class="form-label">Kategori</label>
-                                <select class="form-control" id="kategori" name="kategori"
-                                    value="<?= $job['kategori'] ?>">
-                                    <option value="Makanan">Makanan</option>
-                                    <option value="Non Makanan">Non Makanan</option>
+                                <select class="form-control" id="kategori" name="kategori">
+                                    <option value="Makanan" <?= ($job['kategori'] == 'Makanan') ? 'selected' : ''; ?>>
+                                        Makanan</option>
+                                    <option value="Non Makanan" <?= ($job['kategori'] == 'Non Makanan') ? 'selected' : ''; ?>>Non Makanan</option>
                                 </select>
                             </div>
+
                             <div class="mb-3">
                                 <input type="submit" class="btn btn-info" value="Edit" />
                             </div>

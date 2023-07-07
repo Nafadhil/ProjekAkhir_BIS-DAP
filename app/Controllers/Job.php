@@ -25,23 +25,28 @@ class Job extends BaseController
 
     public function index()
     {
-        //$job = $this->umkmdataModel->findAll();
+        $currentPage = $this->request->getVar('page_umkmdata') ? $this->request->getVar('page_umkmdata') :
+            1;
         $keyword = $this->request->getVar('keyword');
         if ($keyword) {
+            session()->set('keyword', $keyword);
             $umkm = $this->umkmdataModel->search($keyword);
         } else {
+            session()->remove('keyword');
             $umkm = $this->umkmdataModel;
         }
 
         $data = [
             'tittle' => "Job List | E-Rekrutmen",
             'umkmdata' => $umkm->paginate(10, 'umkmdata'),
-            'pager' => $this->umkmdataModel->pager
+            'pager' => $this->umkmdataModel->pager,
+            'keyword' => $keyword,
+            'currentPage' => $currentPage
         ];
-
 
         return view('umkmdata/index', $data);
     }
+
 
     /**
      * Return the properties of a resource object
@@ -128,7 +133,7 @@ class Job extends BaseController
         $data = [
             "tanggal" => $this->request->getPost('tanggal'),
             "nama" => $this->request->getPost('nama'),
-            "kelamin" => $this->request->getPost('kelamin'),
+            "jns_kelamin" => $this->request->getPost('jns_kelamin'),
             "alamat" => $this->request->getPost('alamat'),
             "kecamatan" => $this->request->getPost('kecamatan'),
             "produk1" => $this->request->getPost('produk1'),
@@ -167,7 +172,7 @@ class Job extends BaseController
         $data = [
             "tanggal" => $this->request->getPost('tanggal'),
             "nama" => $this->request->getPost('nama'),
-            "kelamin" => $this->request->getPost('kelamin'),
+            "jns_kelamin" => $this->request->getPost('jns_kelamin'),
             "alamat" => $this->request->getPost('alamat'),
             "kecamatan" => $this->request->getPost('kecamatan'),
             "produk1" => $this->request->getPost('produk1'),
@@ -222,7 +227,7 @@ class Job extends BaseController
             fputcsv(
                 $file,
                 array(
-                    $row['tanggal'], $row['nama'], $row['kelamin'],
+                    $row['tanggal'], $row['nama'], $row['jns_kelamin'],
                     $row['alamat'], $row['kecamatan'], $row['produk1'], $row['produk2'],
                     $row['produk3'], $row['produk4'], $row['kategori']
                 )
@@ -245,7 +250,7 @@ class Job extends BaseController
         ];
         $dompdf = new Dompdf();
         $dompdf->loadHtml(view('umkmdata/view', $data));
-        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->setPaper('A0', 'landscape');
         $dompdf->render();
 
         $output = $dompdf->output();

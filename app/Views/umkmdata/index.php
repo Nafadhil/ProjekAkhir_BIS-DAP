@@ -8,18 +8,18 @@
 
         <div class="section-body">
             <div class="card">
-                <div class="float-right ml-2">
-                    <form action="" method="get">
+                <form action="" method="get">
+                    <div class="float-right ml-2">
                         <div class="float-left">
                             <input type="text" name="keyword" class="form-control" style="width:155pt;"
-                                placeholder="Search...">
+                                placeholder="Search..." value="<?= isset($keyword) ? $keyword : ''; ?>">
                         </div>
                         <div class="float-left ml-2">
                             <button type="submit" class="btn btn-primary" name="tombolcari"><i
                                     class="fas fa-search"></i></button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
                 <div class="float-left ml-2">
                     <a href="<?= base_url(); ?>/job/upload" class="btn btn-primary">Add</a>
                     <a href="<?php echo site_url('viewpdf'); ?>" target="_blank" class="btn btn-primary">View
@@ -34,23 +34,31 @@
                         </div>
                     <?php endif; ?>
                     <table class="table table-striped table-md">
-                        <tbody>
+                        <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Tanggal</th>
-                                <th>Nama</th>
-                                <th>Kelamin</th>
-                                <th>Alamat</th>
-                                <th>Kecamatan</th>
-                                <th>Produk1</th>
-                                <th>Produk2</th>
-                                <th>Produk3</th>
-                                <th>Produk4</th>
-                                <th>Kategori</th>
-                                <th>Action</th>
+                                <th style="background-color: white;">No</th>
+                                <th style="background-color: white;">Tanggal</th>
+                                <th style="background-color: white;">Nama</th>
+                                <th style="background-color: white;">Foto KTP</th>
+                                <th style="background-color: white;">Kelamin</th>
+                                <th style="background-color: white;">Alamat</th>
+                                <th style="background-color: white;">Kecamatan</th>
+                                <th style="background-color: white;">Kelurahan</th>
+                                <th style="background-color: white;">Kota</th>
+                                <th style="background-color: white;">Kode Pos</th>
+                                <th style="background-color: white;">Nama Usaha</th>
+                                <th style="background-color: white;">Produk1</th>
+                                <th style="background-color: white;">Produk2</th>
+                                <th style="background-color: white;">Produk3</th>
+                                <th style="background-color: white;">Produk4</th>
+                                <th style="background-color: white;">Kategori</th>
+                                <th style="background-color: white;">Status NIB</th>
+                                <th style="background-color: white;">Action</th>
                             </tr>
+                        </thead>
+                        <tbody>
                             <?php
-                            $i = 1;
+                            $i = 1 + (10 * ($currentPage - 1));
                             foreach ($umkmdata as $j):
                                 ?>
                                 <tr>
@@ -64,13 +72,28 @@
                                         <?= $j['nama']; ?>
                                     </td>
                                     <td>
-                                        <?= $j['kelamin']; ?>
+                                        <?= $j['fotoktp']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $j['jns_kelamin']; ?>
                                     </td>
                                     <td>
                                         <?= $j['alamat']; ?>
                                     </td>
                                     <td>
                                         <?= $j['kecamatan']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $j['kelurahan']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $j['kota']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $j['kodepos']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $j['namausaha']; ?>
                                     </td>
                                     <td>
                                         <?= $j['produk1']; ?>
@@ -87,7 +110,9 @@
                                     <td>
                                         <?= $j['kategori']; ?>
                                     </td>
-
+                                    <td>
+                                        <?= $j['status_nib']; ?>
+                                    </td>
                                     <td>
                                         <a href="/job/<?= $j['id'] ?>/edit" class="btn btn-warning btn-sm"><i
                                                 class="fas fa-pencil-alt"></i></a>

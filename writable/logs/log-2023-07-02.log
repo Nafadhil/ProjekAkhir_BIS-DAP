@@ -39,3 +39,7 @@ INFO - 2023-07-02 09:40:28 --> Session: Class initialized using 'CodeIgniter\Ses
 WARNING - 2023-07-02 09:40:28 --> Session: Sessions is enabled, and one exists.Please don't $session->start();
 INFO - 2023-07-02 09:40:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 WARNING - 2023-07-02 09:40:45 --> Session: Sessions is enabled, and one exists.Please don't $session->start();
+INFO - 2023-07-02 09:43:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-07-02 09:43:17 --> Session: Sessions is enabled, and one exists.Please don't $session->start();
+INFO - 2023-07-02 09:43:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-07-02 09:43:23 --> Session: Sessions is enabled, and one exists.Please don't $session->start();
