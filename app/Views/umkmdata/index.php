@@ -3,7 +3,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Job List</h1>
+            <h1>umkmdata List</h1>
         </div>
 
         <div class="section-body">
@@ -21,7 +21,7 @@
                     </div>
                 </form>
                 <div class="float-left ml-2">
-                    <a href="<?= base_url(); ?>/job/upload" class="btn btn-primary">Add</a>
+                    <a href="<?= base_url(); ?>/umkmdata/upload" class="btn btn-primary">Add</a>
                     <a href="<?php echo site_url('viewpdf'); ?>" target="_blank" class="btn btn-primary">View
                         PDF</a>
                     <a href="<?= base_url(); ?>/export" class="btn btn-primary">
@@ -114,9 +114,9 @@
                                         <?= $j['status_nib']; ?>
                                     </td>
                                     <td>
-                                        <a href="/job/<?= $j['id'] ?>/edit" class="btn btn-warning btn-sm"><i
+                                        <a href="/umkmdata/<?= $j['id'] ?>/edit" class="btn btn-warning btn-sm"><i
                                                 class="fas fa-pencil-alt"></i></a>
-                                        <form action="/job/<?= $j['id'] ?>" method="post" class="d-inline"
+                                        <form action="/umkmdata/<?= $j['id'] ?>" method="post" class="d-inline"
                                             onsubmit="return confirm(`Are you sure?`)">
                                             <input type="hidden" name="_method" value="delete" />
                                             <button type="submit" class="btn btn-danger btn-sm"><i

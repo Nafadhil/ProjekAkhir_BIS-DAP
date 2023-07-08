@@ -58,29 +58,31 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-4 col-md-12">
-          <div class="card">
-            <div class="card-header">
-              <h4>Statistics</h4>
-            </div>
-            <div class="card-body">
-              <div class="statistic-details mt-sm-4">
-                <div class="statistic-details-item">
-                  <canvas id="thread_kategori" width="200" height="200"></canvas>
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <div class="card" style="height: 800px;">
+              <div class="card-header">
+                <h4>Kecamatan</h4>
+              </div>
+              <div class="card-body">
+                <div class="statistic-details mt-sm-4">
+                  <div class="statistic-details-item">
+                    <canvas id="thread_kategori" width="500" height="500"></canvas>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-12">
-          <div class="card">
-            <div class="card-header">
-              <h4>Statistics</h4>
-            </div>
-            <div class="card-body">
-              <div class="statistic-details mt-sm-4">
-                <div class="statistic-details-item">
-                  <canvas id="tahun_lahir" width="200" height="200"></canvas>
+          <div class="col-lg-6 col-md-12">
+            <div class="card" style="height: 800px;">
+              <div class="card-header">
+                <h4>Kategori Produk</h4>
+              </div>
+              <div class="card-body">
+                <div class="statistic-details mt-sm-4">
+                  <div class="statistic-details-item">
+                    <canvas id="tahun_lahir" width="500" height="500"></canvas>
+                  </div>
                 </div>
               </div>
             </div>
@@ -88,7 +90,6 @@
         </div>
       </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
 </section>
 <?= $this->endSection() ?>
@@ -158,12 +159,12 @@
       data: label_tahun_lahir,
       backgroundColor: 'rgba(54, 162, 235, 0.8)',
     }],
-    labels: label_tahun_lahir,
-  }
+    labels: ['Kategori Produk'],
+  };
 
   var chart_tahun_lahir = new Chart(tahun_lahir, {
     type: 'bar',
-    data: data_user_per_tahun_lahir
+    data: data_user_per_tahun_lahir,
   });
 </script>
 <?= $this->endSection() ?>

@@ -29,7 +29,7 @@ class Home extends BaseController
             ->find();
 
         $data = [
-            'tittle' => "Dashboard | E-Rekrutmen",
+            'tittle' => "Dashboard | SI-IDA",
             'umkmdata' => $umkmdata,
             'jumlah' => $jumlah_baris,
             'jumlah_makanan' => $jumlah_makanan,

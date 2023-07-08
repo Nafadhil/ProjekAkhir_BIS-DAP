@@ -38,15 +38,15 @@ $routes->group('', ['filter' => 'authMiddleware'], function ($routes) {
     $routes->get('/uplod', 'UserData::create');
     $routes->post('/berkas/save', 'UserData::save');
     $routes->get('/berkas', 'UserData::index');
-    $routes->get('/apply/(:segment)', 'Job::apply/$1');
+    $routes->get('/apply/(:segment)', 'Umkmdata::apply/$1');
     $routes->get('/berkas/download/(:num)', 'UserData::download/$1');
-    $routes->get('/job/upload', 'Job::create');
-    $routes->post('/job/save', 'Job::save');
-    $routes->post('/job/update/(:segment)', 'Job::update/$1');
-    $routes->resource('job');
+    $routes->get('/umkmdata/upload', 'Umkmdata::create');
+    $routes->post('/umkmdata/save', 'Umkmdata::save');
+    $routes->post('/umkmdata/update/(:segment)', 'Umkmdata::update/$1');
+    $routes->resource('umkmdata');
     $routes->resource('userdata');
-    $routes->get('/export', 'Job::exportToCSV');
-    $routes->get('/viewpdf', 'Job::viewpdf');
+    $routes->get('/export', 'Umkmdata::exportToCSV');
+    $routes->get('/viewpdf', 'Umkmdata::viewpdf');
 });
 
 /*

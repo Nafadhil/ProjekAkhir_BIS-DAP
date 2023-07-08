@@ -6,9 +6,8 @@ use App\Controllers\BaseController;
 use App\Models\UmkmDataModel;
 use \Dompdf\Dompdf;
 
-class Job extends BaseController
+class umkmdata extends BaseController
 {
-    protected $jobModel;
     protected $umkmdataModel;
     protected $session;
 
@@ -37,7 +36,7 @@ class Job extends BaseController
         }
 
         $data = [
-            'tittle' => "Job List | E-Rekrutmen",
+            'tittle' => "umkmdata List | SI-IDA",
             'umkmdata' => $umkm->paginate(10, 'umkmdata'),
             'pager' => $this->umkmdataModel->pager,
             'keyword' => $keyword,
@@ -67,7 +66,7 @@ class Job extends BaseController
     public function create()
     {
         $data = [
-            'tittle' => "Add Job | E-Rekrutmen"
+            'tittle' => "Add umkmdata | SI-IDA"
         ];
 
         return view('umkmdata/upload', $data);
@@ -94,7 +93,13 @@ class Job extends BaseController
                         'required' => 'Nama Tidak boleh kosong'
                     ]
                 ],
-                'kelamin' => [
+                'fotoktp' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Foto KTP Tidak boleh kosong'
+                    ]
+                ],
+                'jns_kelamin' => [
                     'rules' => 'required',
                     'errors' => [
                         'required' => 'Kelamin Tidak boleh kosong'
@@ -112,6 +117,30 @@ class Job extends BaseController
                         'required' => 'Kecamatan Tidak boleh kosong'
                     ]
                 ],
+                'kelurahan' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kelurahan Tidak boleh kosong'
+                    ]
+                ],
+                'kota' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kota Tidak boleh kosong'
+                    ]
+                ],
+                'kodepos' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kode Pos Tidak boleh kosong'
+                    ]
+                ],
+                'namausaha' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Nama Usaha Tidak boleh kosong'
+                    ]
+                ],
                 'produk1' => [
                     'rules' => 'required',
                     'errors' => [
@@ -123,6 +152,12 @@ class Job extends BaseController
                     'errors' => [
                         'required' => 'Kategori Tidak boleh kosong'
                     ]
+                ],
+                'status_nib' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Status NIB Tidak boleh kosong'
+                    ]
                 ]
             ])
         ) {
@@ -133,18 +168,24 @@ class Job extends BaseController
         $data = [
             "tanggal" => $this->request->getPost('tanggal'),
             "nama" => $this->request->getPost('nama'),
+            "fotoktp" => $this->request->getPost('fotoktp'),
             "jns_kelamin" => $this->request->getPost('jns_kelamin'),
             "alamat" => $this->request->getPost('alamat'),
             "kecamatan" => $this->request->getPost('kecamatan'),
+            "kelurahan" => $this->request->getPost('kelurahan'),
+            "kota" => $this->request->getPost('kota'),
+            "kodepos" => $this->request->getPost('kodepos'),
+            "namausaha" => $this->request->getPost('namausaha'),
             "produk1" => $this->request->getPost('produk1'),
             "produk2" => $this->request->getPost('produk2'),
             "produk3" => $this->request->getPost('produk3'),
             "produk4" => $this->request->getPost('produk4'),
             "kategori" => $this->request->getPost('kategori'),
+            "status_nib" => $this->request->getPost('status_nib'),
         ];
         $this->umkmdataModel->insert($data);
         session()->setFlashdata('success', 'Data Berhasil diupload');
-        return redirect()->to('/job');
+        return redirect()->to('/umkmdata');
     }
 
     /**
@@ -155,7 +196,7 @@ class Job extends BaseController
     public function edit($id = null)
     {
         $data = [
-            'tittle' => "Edit Job | E-Rekrutmen",
+            'tittle' => "Edit umkmdata | SI-IDA",
             'job' => $this->umkmdataModel->getUmkmData($id)
         ];
         echo view('umkmdata/edit', $data);
@@ -172,18 +213,24 @@ class Job extends BaseController
         $data = [
             "tanggal" => $this->request->getPost('tanggal'),
             "nama" => $this->request->getPost('nama'),
+            "fotoktp" => $this->request->getPost('fotoktp'),
             "jns_kelamin" => $this->request->getPost('jns_kelamin'),
             "alamat" => $this->request->getPost('alamat'),
             "kecamatan" => $this->request->getPost('kecamatan'),
+            "kelurahan" => $this->request->getPost('kelurahan'),
+            "kota" => $this->request->getPost('kota'),
+            "kodepos" => $this->request->getPost('kodepos'),
+            "namausaha" => $this->request->getPost('namausaha'),
             "produk1" => $this->request->getPost('produk1'),
             "produk2" => $this->request->getPost('produk2'),
             "produk3" => $this->request->getPost('produk3'),
             "produk4" => $this->request->getPost('produk4'),
             "kategori" => $this->request->getPost('kategori'),
+            "status_nib" => $this->request->getPost('status_nib'),
         ];
         $this->umkmdataModel->update($id, $data);
 
-        return redirect()->to('/job');
+        return redirect()->to('/umkmdata');
     }
 
     /**
@@ -194,7 +241,7 @@ class Job extends BaseController
     public function delete($id)
     {
         $this->umkmdataModel->delete($id);
-        return redirect()->to('/job');
+        return redirect()->to('/umkmdata');
     }
 
     public function exportToCSV()
@@ -212,14 +259,20 @@ class Job extends BaseController
             array(
                 'Tanggal',
                 'Nama',
+                'Foto KTP',
                 'Kelamin',
                 'Alamat',
                 'Kecamatan',
+                'Kelurahan',
+                'Kota',
+                'Kode Pos',
+                'Nama Usaha',
                 'Produk1',
                 'Produk2',
                 'Produk3',
                 'Produk4',
-                'Kategori'
+                'Kategori',
+                'Status NIB'
             )
         ); // Menulis header kolom
 
@@ -227,9 +280,10 @@ class Job extends BaseController
             fputcsv(
                 $file,
                 array(
-                    $row['tanggal'], $row['nama'], $row['jns_kelamin'],
-                    $row['alamat'], $row['kecamatan'], $row['produk1'], $row['produk2'],
-                    $row['produk3'], $row['produk4'], $row['kategori']
+                    $row['tanggal'], $row['nama'], $row['fotoktp'], $row['jns_kelamin'],
+                    $row['alamat'], $row['kecamatan'], $row['kelurahan'], $row['kota'],
+                    $row['kodepos'], $row['namausaha'], $row['produk1'], $row['produk2'],
+                    $row['produk3'], $row['produk4'], $row['kategori'], $row['status_nib'],
                 )
             ); // Menulis data
         }

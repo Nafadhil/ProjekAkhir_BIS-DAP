@@ -23,7 +23,7 @@ class Register extends ResourceController
     public function index()
     {
         $data = [
-            'tittle' => "Register | E-Rekrutmen",
+            'tittle' => "Register | SI-IDA",
         ];
         echo view('auth/register', $data);
     }

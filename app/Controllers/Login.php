@@ -24,7 +24,7 @@ class Login extends ResourceController
     public function index()
     {
         $data = [
-            'tittle' => "Login | E-Rekrutmen",
+            'tittle' => "Login | SI-IDA",
         ];
 
         echo view('auth/login', $data);
