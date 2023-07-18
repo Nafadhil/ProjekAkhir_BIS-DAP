@@ -3,7 +3,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>umkmdata List</h1>
+            <h1>UMKM DATA</h1>
         </div>
 
         <div class="section-body">
@@ -29,9 +29,13 @@
                 </div>
                 <div class="card-body table-responsive">
                     <?php if (!empty(session()->getFlashdata('success'))): ?>
-                        <div class="alert alert-success" role="alert">
-                            <?php echo session()->getFlashdata('success'); ?>
-                        </div>
+                        <script>
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: '<?php echo session()->getFlashdata('success'); ?>',
+                            });
+                        </script>
                     <?php endif; ?>
                     <table class="table table-striped table-md">
                         <thead>
@@ -53,6 +57,9 @@
                                 <th style="background-color: white;">Produk4</th>
                                 <th style="background-color: white;">Kategori</th>
                                 <th style="background-color: white;">Status NIB</th>
+                                <th style="background-color: white;">Alasan Tidak Lanjut</th>
+                                <th style="background-color: white;">Status Akun Halal</th>
+                                <th style="background-color: white;">Status Akun NIB</th>
                                 <th style="background-color: white;">Action</th>
                             </tr>
                         </thead>
@@ -112,6 +119,43 @@
                                     </td>
                                     <td>
                                         <?= $j['status_nib']; ?>
+                                    </td>
+                                    <td>
+                                        <span style="color: red;">
+                                            <?= $j['alasan_tdk_lanjut']; ?>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        $statusAkunHalal = $j['status_akun_halal'];
+                                        if ($statusAkunHalal == 'Proses') {
+                                            echo '<span class="btn btn-warning">' . $statusAkunHalal . '</span>';
+                                        } elseif ($statusAkunHalal == 'Selesai') {
+                                            echo '<span class="btn btn-success">' . $statusAkunHalal . '</span>';
+                                        } elseif ($statusAkunHalal == 'Double') {
+                                            echo '<span class="btn btn-danger">' . $statusAkunHalal . '</span>';
+                                        } elseif ($statusAkunHalal == 'Tidak Bisa Dilanjut') {
+                                            echo '<span class="btn btn-danger">' . $statusAkunHalal . '</span>';
+                                        } else {
+                                            echo $statusAkunHalal;
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        $statusAkunNIB = $j['status_akun_nib'];
+                                        if ($statusAkunNIB == 'Proses') {
+                                            echo '<span class="btn btn-warning">' . $statusAkunNIB . '</span>';
+                                        } elseif ($statusAkunNIB == 'Selesai') {
+                                            echo '<span class="btn btn-success">' . $statusAkunNIB . '</span>';
+                                        } elseif ($statusAkunNIB == 'Double') {
+                                            echo '<span class="btn btn-danger">' . $statusAkunNIB . '</span>';
+                                        } elseif ($statusAkunNIB == 'Tidak Bisa Dilanjut') {
+                                            echo '<span class="btn btn-danger">' . $statusAkunNIB . '</span>';
+                                        } else {
+                                            echo $statusAkunNIB;
+                                        }
+                                        ?>
                                     </td>
                                     <td>
                                         <a href="/umkmdata/<?= $j['id'] ?>/edit" class="btn btn-warning btn-sm"><i

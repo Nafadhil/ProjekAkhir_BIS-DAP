@@ -36,7 +36,9 @@
 
 <body>
     <div class="container mt-5">
-        <h2>Generate PDF in Codeigniter from View</h2>
+        <h1 style="text-align: center; font-size: 40px;">RUMAH HALAL NUSANTARA</h1>
+        <h1 style="text-align: center; font-size: 40px;">Data UMKM di Kota Depok</h1>
+        <hr style="horizontal-line; border-top: 1px"><br><br>
         <div class="d-flex flex-row-reverse bd-highlight">
             <table class="table table-striped table-hover mt-4">
                 <thead>
@@ -58,6 +60,9 @@
                         <th>Produk4</th>
                         <th>Kategori</th>
                         <th>Status NIB</th>
+                        <th>Alasan Tidak Lanjut</th>
+                        <th>Status Akun Halal</th>
+                        <th>Status Akun NIB</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -117,11 +122,21 @@
                             <td>
                                 <?= $j['status_nib']; ?>
                             </td>
+                            <td>
+                                <?= $j['alasan_tdk_lanjut']; ?>
+                            </td>
+                            <td>
+                                <?= $j['status_akun_halal']; ?>
+                            </td>
+                            <td>
+                                <?= $j['status_akun_nib']; ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
+        <br><br>
         <?= $this->include('layouts/footer') ?>
         <script>
             function openPdfInNewTab() {

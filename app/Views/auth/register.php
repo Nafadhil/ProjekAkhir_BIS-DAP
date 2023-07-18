@@ -76,7 +76,7 @@
               </div>
             </div>
             <div class="simple-footer">
-              Copyright &copy; Foody Moody 2023
+              Copyright &copy; SI-IDA 2023
             </div>
           </div>
         </div>

@@ -150,21 +150,22 @@
 
   var data_user_per_tahun_lahir = {
     datasets: [{
-      label: 'Jumlah Makanan',
-      data: data_tahun_lahir,
-      backgroundColor: 'rgba(255, 99, 132, 0.8)',
-    },
-    {
-      label: 'Jumlah Non-Makanan',
-      data: label_tahun_lahir,
-      backgroundColor: 'rgba(54, 162, 235, 0.8)',
+      data: data_tahun_lahir.concat(label_tahun_lahir),
+      backgroundColor: ['rgba(255, 99, 132, 0.8)', 'rgba(54, 162, 235, 0.8)'],
     }],
-    labels: ['Kategori Produk'],
+    labels: ["Makanan", "Non Makanan"],
   };
 
   var chart_tahun_lahir = new Chart(tahun_lahir, {
     type: 'bar',
     data: data_user_per_tahun_lahir,
+    options: {
+      legend: {
+        display: false
+      }
+    }
   });
+
+
 </script>
 <?= $this->endSection() ?>

@@ -71,7 +71,7 @@
                   </div>
                 </form>
                 <div class="text-center mt-4 mb-3">
-                  <div class="text-job text-muted">Login With Foody Moody</div>
+                  <div class="text-job text-muted">Login With SI-IDA</div>
                 </div>
                 <div class="row sm-gutters">
                 </div>
@@ -82,7 +82,7 @@
               Don't have an account? <a href="/register">Create One</a>
             </div>
             <div class="simple-footer">
-              Copyright &copy; Foody Moody 2023
+              Copyright &copy; SI-IDA 2023
             </div>
           </div>
         </div>

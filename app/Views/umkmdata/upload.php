@@ -3,13 +3,13 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>NEW umkmdata</h1>
+            <h1>NEW UMKM DATA</h1>
         </div>
 
         <div class="section-body">
             <div class="card">
                 <div class="card-header">
-                    <h4>NEW umkmdata</h4>
+                    <h4>NEW UMKM DATA</h4>
                 </div>
                 <div class="card-body">
                     <div class="card-body table-responsivey">
@@ -23,59 +23,59 @@
                         <form method="post" action="<?= base_url(); ?>/umkmdata/save" enctype="multipart/form-data">
                             <?= csrf_field(); ?>
                             <div class="mb-3">
-                                <label for="tanggal" class="form-label">Tanggal</label>
+                                <label for="tanggal" class="form-label">Tanggal<span class="required">*</span></label>
                                 <input type="date" class="form-control" id="tanggal" name="tanggal"
                                     value="<?= old('tanggal'); ?>" style="height: 50px;">
                             </div>
                             <div class="mb-3">
-                                <label for="nama" class="form-label">Nama</label>
+                                <label for="nama" class="form-label">Nama<span class="required">*</span></label>
                                 <input type="text" class="form-control" id="nama" name="nama"
                                     value="<?= old('nama'); ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="fotoktp" class="form-label">Foto KTP</label>
+                                <label for="fotoktp" class="form-label">Foto KTP<span class="required">*</span></label>
                                 <input type="text" class="form-control" id="fotoktp" name="fotoktp"
                                     value="<?= old('fotoktp'); ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="jns_kelamin" class="form-label">Kelamin</label>
+                                <label for="jns_kelamin" class="form-label">Kelamin<span class="required">*</span></label>
                                 <select class="form-control" id="jns_kelamin" name="jns_kelamin" value="<?= old('jns_kelamin'); ?>">
-                                    <option value="Laki-laki">Laki-laki</option>
+                                    <option value="Laki-Laki">Laki-Laki</option>
                                     <option value="Perempuan">Perempuan</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="alamat" class="form-label">Alamat</label>
+                                <label for="alamat" class="form-label">Alamat<span class="required">*</span></label>
                                 <input type="text" class="form-control" id="alamat"
                                     name="alamat" <?= old('alamat'); ?> style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="kecamatan" class="form-label">Kecamatan</label>
+                                <label for="kecamatan" class="form-label">Kecamatan<span class="required">*</span></label>
                                 <input type="text" class="form-control" id="kecamatan"
                                     name="kecamatan"<?= old('kecamatan'); ?> style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="kelurahan" class="form-label">Kelurahan</label>
+                                <label for="kelurahan" class="form-label">Kelurahan<span class="required">*</span></label>
                                 <input type="text" class="form-control" id="kelurahan"
                                     name="kelurahan"<?= old('kelurahan'); ?> style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="kota" class="form-label">Kota</label>
+                                <label for="kota" class="form-label">Kota<span class="required">*</span></label>
                                 <input type="text" class="form-control" id="kota"
                                     name="kota"<?= old('kota'); ?> style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="kodepos" class="form-label">Kode Pos</label>
+                                <label for="kodepos" class="form-label">Kode Pos<span class="required">*</span></label>
                                 <input type="number" class="form-control" id="kodepos"
                                     name="kodepos"<?= old('kodepos'); ?> style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="namausaha" class="form-label">Nama Usaha</label>
+                                <label for="namausaha" class="form-label">Nama Usaha<span class="required">*</span></label>
                                 <input type="text" class="form-control" id="namausaha"
                                     name="namausaha"<?= old('namausaha'); ?> style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="produk1" class="form-label">Produk1</label>
+                                <label for="produk1" class="form-label">Produk1<span class="required">*</span></label>
                                 <input type="text" class="form-control" id="produk1"
                                     name="produk1"<?= old('produk1'); ?> style="height: 100px; vertical-align: top;">
                             </div>
@@ -95,7 +95,7 @@
                                     name="produk4"<?= old('produk4'); ?> style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="kategori" class="form-label">Kategori</label>
+                                <label for="kategori" class="form-label">Kategori<span class="required">*</span></label>
                                 <select class="form-control" id="kategori" name="kategori"
                                     value="<?= old('kategori'); ?>">
                                     <option value="Makanan">Makanan</option>
@@ -103,11 +103,36 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="status_nib" class="form-label">Status NIB</label>
+                                <label for="status_nib" class="form-label">Status NIB<span class="required">*</span></label>
                                 <select class="form-control" id="status_nib" name="status_nib"
                                     value="<?= old('status_nib'); ?>">
                                     <option value="BELUM">Belum</option>
                                     <option value="SUDAH">Sudah</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="alasan_tdk_lanjut" class="form-label">Alasan Tidak Lanjut</label>
+                                <input type="text" class="form-control" id="alasan_tdk_lanjut"
+                                    name="alasan_tdk_lanjut"<?= old('alasan_tdk_lanjut'); ?> style="height: 100px; vertical-align: top;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="status_akun_halal" class="form-label">Status Akun Halal</label>
+                                <select class="form-control" id="status_akun_halal" name="status_akun_halal"
+                                    value="<?= old('status_akun_halal'); ?>">
+                                    <option value="Proses">Proses</option>
+                                    <option value="Selesai">Selesai</option>
+                                    <option value="Double">Double</option>
+                                    <option value="Tidak Bisa Dilanjut">Tidak Bisa Dilanjut</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="status_akun_nib" class="form-label">Status Akun NIB</label>
+                                <select class="form-control" id="status_akun_nib" name="status_akun_nib"
+                                    value="<?= old('status_akun_nib'); ?>">
+                                    <option value="Proses">Proses</option>
+                                    <option value="Selesai">Selesai</option>
+                                    <option value="Double">Double</option>
+                                    <option value="Tidak Bisa Dilanjut">Tidak Bisa Dilanjut</option>
                                 </select>
                             </div>
                             <div class="mb-3">

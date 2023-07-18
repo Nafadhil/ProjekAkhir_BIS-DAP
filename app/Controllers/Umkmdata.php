@@ -36,7 +36,7 @@ class umkmdata extends BaseController
         }
 
         $data = [
-            'tittle' => "umkmdata List | SI-IDA",
+            'tittle' => "UMKM Data | SI-IDA",
             'umkmdata' => $umkm->paginate(10, 'umkmdata'),
             'pager' => $this->umkmdataModel->pager,
             'keyword' => $keyword,
@@ -66,7 +66,7 @@ class umkmdata extends BaseController
     public function create()
     {
         $data = [
-            'tittle' => "Add umkmdata | SI-IDA"
+            'tittle' => "Add UMKM Data | SI-IDA"
         ];
 
         return view('umkmdata/upload', $data);
@@ -182,6 +182,9 @@ class umkmdata extends BaseController
             "produk4" => $this->request->getPost('produk4'),
             "kategori" => $this->request->getPost('kategori'),
             "status_nib" => $this->request->getPost('status_nib'),
+            "alasan_tdk_lanjut" => $this->request->getPost('alasan_tdk_lanjut'),
+            "status_akun_halal" => $this->request->getPost('status_akun_halal'),
+            "status_akun_nib" => $this->request->getPost('status_akun_nib'),
         ];
         $this->umkmdataModel->insert($data);
         session()->setFlashdata('success', 'Data Berhasil diupload');
@@ -196,8 +199,8 @@ class umkmdata extends BaseController
     public function edit($id = null)
     {
         $data = [
-            'tittle' => "Edit umkmdata | SI-IDA",
-            'job' => $this->umkmdataModel->getUmkmData($id)
+            'tittle' => "Edit UMKM Data | SI-IDA",
+            'umkmdata' => $this->umkmdataModel->getUmkmData($id)
         ];
         echo view('umkmdata/edit', $data);
 
@@ -227,9 +230,12 @@ class umkmdata extends BaseController
             "produk4" => $this->request->getPost('produk4'),
             "kategori" => $this->request->getPost('kategori'),
             "status_nib" => $this->request->getPost('status_nib'),
+            "alasan_tdk_lanjut" => $this->request->getPost('alasan_tdk_lanjut'),
+            "status_akun_halal" => $this->request->getPost('status_akun_halal'),
+            "status_akun_nib" => $this->request->getPost('status_akun_nib'),
         ];
         $this->umkmdataModel->update($id, $data);
-
+        session()->setFlashdata('success', 'Data Berhasil diubah');
         return redirect()->to('/umkmdata');
     }
 
@@ -241,6 +247,7 @@ class umkmdata extends BaseController
     public function delete($id)
     {
         $this->umkmdataModel->delete($id);
+        session()->setFlashdata('success', 'Data berhasil dihapus');
         return redirect()->to('/umkmdata');
     }
 
@@ -272,7 +279,10 @@ class umkmdata extends BaseController
                 'Produk3',
                 'Produk4',
                 'Kategori',
-                'Status NIB'
+                'Status NIB',
+                'Alasan Tidak Lanjut',
+                'Status Akun Halal',
+                'Status Akun NIB'
             )
         ); // Menulis header kolom
 
@@ -284,6 +294,7 @@ class umkmdata extends BaseController
                     $row['alamat'], $row['kecamatan'], $row['kelurahan'], $row['kota'],
                     $row['kodepos'], $row['namausaha'], $row['produk1'], $row['produk2'],
                     $row['produk3'], $row['produk4'], $row['kategori'], $row['status_nib'],
+                    $row['alasan_tdk_lanjut'], $row['status_akun_halal'], $row['status_akun_nib'],
                 )
             ); // Menulis data
         }

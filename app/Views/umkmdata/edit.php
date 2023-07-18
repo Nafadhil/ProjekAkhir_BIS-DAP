@@ -3,105 +3,152 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Umkmdata EDIT</h1>
+            <h1>UMKM DATA EDIT</h1>
         </div>
 
         <div class="section-body">
             <div class="card">
                 <div class="card-header">
-                    <h4>Umkmdata EDIT</h4>
+                    <h4>UMKM DATA EDIT</h4>
                 </div>
                 <div class="card-body">
                     <div class="card-body table-responsivey">
-                        <form method="post" action="<?= base_url(); ?>/umkmdata/update/<?= $job['id'] ?>"
+                        <form method="post" action="<?= base_url(); ?>/umkmdata/update/<?= $umkmdata['id'] ?>"
                             enctype="multipart/form-data">
                             <?= csrf_field(); ?>
                             <div class="mb-3">
-                                <label for="tanggal" class="form-label">Tanggal</label>
+                                <label for="tanggal" class="form-label">Tanggal<span class="required">*</span></label>
                                 <input type="datetime-local" class="form-control" id="tanggal" name="tanggal"
-                                    value="<?= date('Y-m-d\TH:i', strtotime($job['tanggal'])) ?>">
+                                    value="<?= date('Y-m-d\TH:i', strtotime($umkmdata['tanggal'])) ?>">
                             </div>
                             <div class="mb-3">
-                                <label for="nama" class="form-label">Nama</label>
+                                <label for="nama" class="form-label">Nama<span class="required">*</span></label>
                                 <input type="text" class="form-control" id="nama" name="nama"
-                                    value="<?= $job['nama'] ?>" style="height: 100px; vertical-align: top;">
+                                    value="<?= $umkmdata['nama'] ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="fotoktp" class="form-label">Foto KTP</label>
+                                <label for="fotoktp" class="form-label">Foto KTP<span class="required">*</span></label>
                                 <input type="text" class="form-control" id="fotoktp" name="fotoktp"
-                                    value="<?= $job['fotoktp'] ?>" style="height: 100px; vertical-align: top;">
+                                    value="<?= $umkmdata['fotoktp'] ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="kelamin" class="form-label">Kelamin</label>
+                                <label for="kelamin" class="form-label">Kelamin<span class="required">*</span></label>
                                 <select class="form-control" id="kelamin" name="kelamin">
-                                    <option value="Laki-laki" <?= ($job['jns_kelamin'] == 'Laki-laki') ? 'selected' : ''; ?>>Laki-laki</option>
-                                    <option value="Perempuan" <?= ($job['jns_kelamin'] == 'Perempuan') ? 'selected' : ''; ?>>Perempuan</option>
+                                    <option value="Laki-Laki" <?= ($umkmdata['jns_kelamin'] == 'Laki-Laki') ? 'selected' : ''; ?>>Laki-laki</option>
+                                    <option value="Perempuan" <?= ($umkmdata['jns_kelamin'] == 'Perempuan') ? 'selected' : ''; ?>>Perempuan</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="alamat" class="form-label">Alamat</label>
+                                <label for="alamat" class="form-label">Alamat<span class="required">*</span></label>
                                 <input type="text" class="form-control" id="alamat" name="alamat"
-                                    value="<?= $job['alamat'] ?>" style="height: 100px; vertical-align: top;">
+                                    value="<?= $umkmdata['alamat'] ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="kecamatan" class="form-label">Kecamatan</label>
+                                <label for="kecamatan" class="form-label">Kecamatan<span
+                                        class="required">*</span></label>
                                 <input type="text" class="form-control" id="kecamatan" name="kecamatan"
-                                    value="<?= $job['kecamatan'] ?>" style="height: 100px; vertical-align: top;">
+                                    value="<?= $umkmdata['kecamatan'] ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="kelurahan" class="form-label">Kelurahan</label>
+                                <label for="kelurahan" class="form-label">Kelurahan<span
+                                        class="required">*</span></label>
                                 <input type="text" class="form-control" id="kelurahan" name="kelurahan"
-                                    value="<?= $job['kelurahan'] ?>" style="height: 100px; vertical-align: top;">
+                                    value="<?= $umkmdata['kelurahan'] ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="kota" class="form-label">Kota</label>
+                                <label for="kota" class="form-label">Kota<span class="required">*</span></label>
                                 <input type="text" class="form-control" id="kota" name="kota"
-                                    value="<?= $job['kota'] ?>" style="height: 100px; vertical-align: top;">
+                                    value="<?= $umkmdata['kota'] ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="kodepos" class="form-label">Kode Pos</label>
+                                <label for="kodepos" class="form-label">Kode Pos<span class="required">*</span></label>
                                 <input type="number" class="form-control" id="kodepos" name="kodepos"
-                                    value="<?= $job['kodepos'] ?>" style="height: 100px; vertical-align: top;">
+                                    value="<?= $umkmdata['kodepos'] ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="namausaha" class="form-label">Nama Usaha</label>
+                                <label for="namausaha" class="form-label">Nama Usaha<span
+                                        class="required">*</span></label>
                                 <input type="text" class="form-control" id="namausaha" name="namausaha"
-                                    value="<?= $job['namausaha'] ?>" style="height: 100px; vertical-align: top;">
+                                    value="<?= $umkmdata['namausaha'] ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="produk1" class="form-label">Produk 1</label>
+                                <label for="produk1" class="form-label">Produk 1<span class="required">*</span></label>
                                 <input type="text" class="form-control" id="produk1" name="produk1"
-                                    value="<?= $job['produk1'] ?>" style="height: 100px; vertical-align: top;">
+                                    value="<?= $umkmdata['produk1'] ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
                                 <label for="produk2" class="form-label">Produk 2</label>
                                 <input type="text" class="form-control" id="produk2" name="produk2"
-                                    value="<?= $job['produk2'] ?>" style="height: 100px; vertical-align: top;">
+                                    value="<?= $umkmdata['produk2'] ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
                                 <label for="produk3" class="form-label">Produk 3</label>
                                 <input type="text" class="form-control" id="produk3" name="produk3"
-                                    value="<?= $job['produk3'] ?>" style="height: 100px; vertical-align: top;">
+                                    value="<?= $umkmdata['produk3'] ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
                                 <label for="produk4" class="form-label">Produk 4</label>
                                 <input type="text" class="form-control" id="produk4" name="produk4"
-                                    value="<?= $job['produk4'] ?>" style="height: 100px; vertical-align: top;">
+                                    value="<?= $umkmdata['produk4'] ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="kategori" class="form-label">Kategori</label>
+                                <label for="kategori" class="form-label">Kategori<span class="required">*</span></label>
                                 <select class="form-control" id="kategori" name="kategori">
-                                    <option value="Makanan" <?= ($job['kategori'] == 'Makanan') ? 'selected' : ''; ?>>
+                                    <option value="Makanan" <?= ($umkmdata['kategori'] == 'Makanan') ? 'selected' : ''; ?>>
                                         Makanan</option>
-                                    <option value="Non Makanan" <?= ($job['kategori'] == 'Non Makanan') ? 'selected' : ''; ?>>Non Makanan</option>
+                                    <option value="Non Makanan" <?= ($umkmdata['kategori'] == 'Non Makanan') ? 'selected' : ''; ?>>Non Makanan</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="status_nib" class="form-label">Status NIB</label>
+                                <label for="status_nib" class="form-label">Status NIB<span
+                                        class="required">*</span></label>
                                 <select class="form-control" id="status_nib" name="status_nib">
-                                    <option value="BELUM" <?= ($job['status_nib'] == 'BELUM') ? 'selected' : ''; ?>>Belum
+                                    <option value="BELUM" <?= ($umkmdata['status_nib'] == 'BELUM') ? 'selected' : ''; ?>>
+                                        Belum
                                     </option>
-                                    <option value="SUDAH" <?= ($job['status_nib'] == 'SUDAH') ? 'selected' : ''; ?>>Sudah
+                                    <option value="SUDAH" <?= ($umkmdata['status_nib'] == 'SUDAH') ? 'selected' : ''; ?>>
+                                        Sudah
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="alasan_tdk_lanjut" class="form-label">Alasan Tidak Lanjut</label>
+                                <input type="text" class="form-control" id="alasan_tdk_lanjut" name="alasan_tdk_lanjut"
+                                    value="<?= $umkmdata['produk3'] ?>" style="height: 100px; vertical-align: top;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="status_akun_halal" class="form-label">Status Akun Halal</label>
+                                <select class="form-control" id="status_akun_halal" name="status_akun_halal"
+                                    value="<?= old('status_akun_halal'); ?>">
+                                    <option value="Proses" <?= ($umkmdata['status_akun_halal'] == 'Proses') ? 'selected' : ''; ?>>
+                                        Proses
+                                    </option>
+                                    <option value="Selesai" <?= ($umkmdata['status_akun_halal'] == 'Selesai') ? 'selected' : ''; ?>>
+                                        Selesai
+                                    </option>
+                                    <option value="Double" <?= ($umkmdata['status_akun_halal'] == 'Double') ? 'selected' : ''; ?>>
+                                        Double
+                                    </option>
+                                    <option value="Tidak Bisa Dilanjut" <?= ($umkmdata['status_akun_halal'] == 'Tidak Bisa Dilanjut') ? 'selected' : ''; ?>>
+                                        Tidak Bisa Dilanjut
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="status_akun_nib" class="form-label">Status Akun NIB</label>
+                                <select class="form-control" id="status_akun_nib" name="status_akun_nib"
+                                    value="<?= old('status_akun_nib'); ?>">
+                                    <option value="Proses" <?= ($umkmdata['status_akun_nib'] == 'Proses') ? 'selected' : ''; ?>>
+                                        Proses
+                                    </option>
+                                    <option value="Selesai" <?= ($umkmdata['status_akun_nib'] == 'Selesai') ? 'selected' : ''; ?>>
+                                        Selesai
+                                    </option>
+                                    <option value="Double" <?= ($umkmdata['status_akun_nib'] == 'Double') ? 'selected' : ''; ?>>
+                                        Double
+                                    </option>
+                                    <option value="Tidak Bisa Dilanjut" <?= ($umkmdata['status_akun_nib'] == 'Tidak Bisa Dilanjut') ? 'selected' : ''; ?>>
+                                        Tidak Bisa Dilanjut
                                     </option>
                                 </select>
                             </div>
