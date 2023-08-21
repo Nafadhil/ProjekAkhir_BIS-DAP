@@ -257,7 +257,7 @@ class umkmdata extends BaseController
         $umkm = $this->umkmdataModel->findAll();
 
         // Nama file CSV yang akan dihasilkan
-        $filename = 'data_' . '.csv';
+        $filename = 'bisdata' . '.csv';
 
         // Membuka file CSV dan menulis data
         $file = fopen($filename, 'w');

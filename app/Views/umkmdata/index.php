@@ -161,7 +161,7 @@
                                         <a href="/umkmdata/<?= $j['id'] ?>/edit" class="btn btn-warning btn-sm"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                         <form action="/umkmdata/<?= $j['id'] ?>" method="post" class="d-inline"
-                                            onsubmit="return confirm(`Are you sure?`)">
+                                            onsubmit="return confirm(`Apakah yakin ingin menghapus?`)">
                                             <input type="hidden" name="_method" value="delete" />
                                             <button type="submit" class="btn btn-danger btn-sm"><i
                                                     class="fas fa-trash"></i></button>

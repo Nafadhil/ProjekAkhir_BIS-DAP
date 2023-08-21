@@ -114,7 +114,8 @@
                             <div class="mb-3">
                                 <label for="alasan_tdk_lanjut" class="form-label">Alasan Tidak Lanjut</label>
                                 <input type="text" class="form-control" id="alasan_tdk_lanjut" name="alasan_tdk_lanjut"
-                                    value="<?= $umkmdata['produk3'] ?>" style="height: 100px; vertical-align: top;">
+                                    value="<?= $umkmdata['alasan_tdk_lanjut'] ?>"
+                                    style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
                                 <label for="status_akun_halal" class="form-label">Status Akun Halal</label>

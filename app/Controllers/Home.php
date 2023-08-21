@@ -34,8 +34,8 @@ class Home extends BaseController
             'jumlah' => $jumlah_baris,
             'jumlah_makanan' => $jumlah_makanan,
             'jumlah_non_makanan' => $jumlah_non_makanan,
-            'thread_per_kategori' => $jumlah_per_kecamatan,
-            'tahun_lahir_user' => $jumlah_makanan_nonmakanan,
+            'jumlah_per_kecamatan' => $jumlah_per_kecamatan,
+            'jumlah_makanan_nonmakanan' => $jumlah_makanan_nonmakanan,
         ];
 
         return view('home', $data);
