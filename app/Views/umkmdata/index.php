@@ -78,9 +78,7 @@
                                     <td>
                                         <?= $j['nama']; ?>
                                     </td>
-                                    <td>
-                                        <?= $j['fotoktp']; ?>
-                                    </td>
+                                    <td><img src="/photos/<?= $j['fotoktp'] ?>" alt="" width=140 height=100></td>
                                     <td>
                                         <?= $j['jns_kelamin']; ?>
                                     </td>

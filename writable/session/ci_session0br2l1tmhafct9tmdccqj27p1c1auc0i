@@ -1,0 +1,9 @@
+__ci_last_regenerate|i:1692865534;_ci_previous_url|s:47:"http://localhost:8080/index.php/umkmdata/1/edit";id|s:1:"4";name|s:7:"fadhil2";loggedIn|b:1;umkmdata|N;error|s:235:"<!-- DEBUG-VIEW START 1 SYSTEMPATH\Validation\Views\list.php -->
+	<div class="errors" role="alert">
+		<ul>
+					<li>Kelamin Tidak boleh kosong</li>
+				</ul>
+	</div>
+
+<!-- DEBUG-VIEW ENDED 1 SYSTEMPATH\Validation\Views\list.php -->
+";__ci_vars|a:3:{s:5:"error";s:3:"old";s:13:"_ci_old_input";s:3:"old";s:21:"_ci_validation_errors";s:3:"old";}_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:19:{s:14:"csrf_test_name";s:32:"46841a6934c91e6d2d35be081ceaecb4";s:7:"tanggal";s:16:"2023-06-05T01:15";s:4:"nama";s:15:"Rika Wuryandari";s:7:"kelamin";s:9:"Perempuan";s:6:"alamat";s:34:"Jl. Rokan V No. 266 RT 007 RW 005 ";s:9:"kecamatan";s:9:"Sukmajaya";s:9:"kelurahan";s:9:"Baktijaya";s:4:"kota";s:5:"Depok";s:7:"kodepos";s:5:"16418";s:9:"namausaha";s:10:"Air Mostra";s:7:"produk1";s:11:"Air oksigen";s:7:"produk2";s:0:"";s:7:"produk3";s:0:"";s:7:"produk4";s:0:"";s:8:"kategori";s:7:"Makanan";s:10:"status_nib";s:5:"BELUM";s:17:"alasan_tdk_lanjut";s:0:"";s:17:"status_akun_halal";s:19:"Tidak Bisa Dilanjut";s:15:"status_akun_nib";s:7:"Selesai";}}_ci_validation_errors|a:1:{s:11:"jns_kelamin";s:26:"Kelamin Tidak boleh kosong";}

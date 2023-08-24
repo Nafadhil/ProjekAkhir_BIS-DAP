@@ -29,6 +29,11 @@
                 <a href="/" class="nav-link"><i class="fas fa-home"></i><span>Dashboard</span></a>
             </li>
             <li><a class="nav-link" href="/umkmdata"><i class="fas fa-columns"></i> <span>Data UMKM</span></a></li>
+            <?php if (session()->get('role') == 1) { ?>
+                <li class="menu-header">Account</li>
+                <li><a class="nav-link" href="/register"><i class="fas fa-user-plus"></i> <span>Register</span></a>
+                </li>
+            <?php } ?>
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
                 <a href="https://www.instagram.com/rumah.halalnusantara/?hl=id"
                     class="btn btn-primary btn-lg btn-block btn-icon-split">

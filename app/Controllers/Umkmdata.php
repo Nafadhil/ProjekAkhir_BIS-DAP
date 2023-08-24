@@ -79,6 +79,9 @@ class umkmdata extends BaseController
      */
     public function save()
     {
+        $photo = $this->request->getFile('fotoktp');
+        $fileName = $photo->getRandomName();
+        $photo->move('photos', $fileName);
         if (
             !$this->validate([
                 'tanggal' => [
@@ -91,12 +94,6 @@ class umkmdata extends BaseController
                     'rules' => 'required',
                     'errors' => [
                         'required' => 'Nama Tidak boleh kosong'
-                    ]
-                ],
-                'fotoktp' => [
-                    'rules' => 'required',
-                    'errors' => [
-                        'required' => 'Foto KTP Tidak boleh kosong'
                     ]
                 ],
                 'jns_kelamin' => [
@@ -168,7 +165,7 @@ class umkmdata extends BaseController
         $data = [
             "tanggal" => $this->request->getPost('tanggal'),
             "nama" => $this->request->getPost('nama'),
-            "fotoktp" => $this->request->getPost('fotoktp'),
+            "fotoktp" => $fileName,
             "jns_kelamin" => $this->request->getPost('jns_kelamin'),
             "alamat" => $this->request->getPost('alamat'),
             "kecamatan" => $this->request->getPost('kecamatan'),
@@ -213,10 +210,93 @@ class umkmdata extends BaseController
      */
     public function update($id)
     {
+        $photo = $this->request->getFile('fotoktp');
+        $fileName = $photo->getRandomName();
+        $photo->move('photos', $fileName);
+        if (
+            !$this->validate([
+                'tanggal' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Tanggal Tidak boleh kosong'
+                    ]
+                ],
+                'nama' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Nama Tidak boleh kosong'
+                    ]
+                ],
+                'jns_kelamin' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kelamin Tidak boleh kosong'
+                    ]
+                ],
+                'alamat' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Alamat Tidak boleh kosong'
+                    ]
+                ],
+                'kecamatan' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kecamatan Tidak boleh kosong'
+                    ]
+                ],
+                'kelurahan' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kelurahan Tidak boleh kosong'
+                    ]
+                ],
+                'kota' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kota Tidak boleh kosong'
+                    ]
+                ],
+                'kodepos' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kode Pos Tidak boleh kosong'
+                    ]
+                ],
+                'namausaha' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Nama Usaha Tidak boleh kosong'
+                    ]
+                ],
+                'produk1' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Produk 1 Tidak boleh kosong'
+                    ]
+                ],
+                'kategori' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kategori Tidak boleh kosong'
+                    ]
+                ],
+                'status_nib' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Status NIB Tidak boleh kosong'
+                    ]
+                ]
+            ])
+        ) {
+            session()->setFlashdata('error', $this->validator->listErrors());
+            return redirect()->back()->withInput();
+        }
+
         $data = [
             "tanggal" => $this->request->getPost('tanggal'),
             "nama" => $this->request->getPost('nama'),
-            "fotoktp" => $this->request->getPost('fotoktp'),
+            "fotoktp" => $fileName,
             "jns_kelamin" => $this->request->getPost('jns_kelamin'),
             "alamat" => $this->request->getPost('alamat'),
             "kecamatan" => $this->request->getPost('kecamatan'),

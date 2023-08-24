@@ -22,6 +22,9 @@ class Register extends ResourceController
      */
     public function index()
     {
+        if (session()->get('role') != 1) {
+            return redirect()->to('/');
+        }
         $data = [
             'tittle' => "Register | SI-IDA",
         ];
@@ -55,14 +58,20 @@ class Register extends ResourceController
      */
     public function create()
     {
+        if (session()->get('role') != 1) {
+            return redirect()->to('/');
+        }
         $data = [
             "name" => $this->request->getPost('name'),
             "email" => $this->request->getPost('email'),
             "password" => md5($this->request->getPost('password')),
+            "role" => $this->request->getPost('role')
         ];
 
+
         $this->userModel->insert($data);
-        return redirect()->to('/login');
+        session()->setFlashdata('success', 'Akun Berhasil didaftarkan');
+        return redirect()->to('/register');
     }
 
     /**

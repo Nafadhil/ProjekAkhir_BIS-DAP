@@ -1,90 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('base') ?>
+<?= $this->section('content') ?>
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1>REGISTER ACCOUNT</h1>
+    </div>
 
-<head>
-  <?= $this->include('layouts/head') ?>
-</head>
-
-<body>
-  <div id="app">
-    <section class="section">
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
-            <div class="login-brand">
-              <img src="/template2/dist/assets/img/rhn.png" alt="logo" width="100" class="shadow-light rounded-circle">
-            </div>
-
-            <div class="card card-primary">
-              <div class="card-header">
-                <h4>Register</h4>
-              </div>
-              <?php if (!empty(session()->getFlashdata('error'))): ?>
-                <div class="alert alert-danger" role="alert">
-                  <h4>Periksa Entrian Form</h4>
-                  </hr />
-                  <?php echo session()->getFlashdata('error'); ?>
+    <div class="section-body">
+      <div class="card">
+        <div class="card-header">
+          <h4>REGISTER ACCOUNT</h4>
+        </div>
+        <div class="card-body">
+          <div class="card-body table-responsivey">
+            <?php if (!empty(session()->getFlashdata('success'))): ?>
+              <script>
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Success',
+                  text: '<?php echo session()->getFlashdata('success'); ?>',
+                });
+              </script>
+            <?php endif; ?>
+            <form method="post" action="<?= base_url(); ?>/register" enctype="multipart/form-data">
+              <?= csrf_field(); ?>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" type="text" class="form-control" name="name" tabindex="1" required autofocus>
+                <div class="invalid-feedback">
+                  please fill in your name
                 </div>
-              <?php endif; ?>
-
-              <div class="card-body">
-                <form method="POST">
-                  <div class="form-group">
-                    <label for="name">Name</label>
-                    <input id="name" type="text" class="form-control" name="name" tabindex="1" required autofocus>
-                    <div class="invalid-feedback">
-                      please fill in your name
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
-                    <div class="invalid-feedback">
-                      please fill in your email
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="form-group col-6">
-                      <label for="password" class="d-block">Password</label>
-                      <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator"
-                        name="password" tabindex="2" required>
-                      <div class="invalid-feedback">
-                        please fill in your password
-                      </div>
-                      <div id="pwindicator" class="pwindicator">
-                        <div class="bar"></div>
-                        <div class="label"></div>
-                      </div>
-                    </div>
-                    <div class="form-group col-6">
-                      <label for="password2" class="d-block">Password Confirmation</label>
-                      <input id="password2" type="password" class="form-control" name="password2" tabindex="2" required>
-                      <div class="invalid-feedback">
-                        please fill in your password confirmation
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">
-                      Register
-                    </button>
-                  </div>
-                </form>
               </div>
-            </div>
-            <div class="simple-footer">
-              Copyright &copy; SI-IDA 2023
-            </div>
+
+              <div class="row">
+                <div class="form-group col-6">
+                  <label for="email">Email</label>
+                  <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
+                  <div class="invalid-feedback">
+                    please fill in your email
+                  </div>
+                  <div id="pwindicator" class="pwindicator">
+                    <div class="bar"></div>
+                    <div class="label"></div>
+                  </div>
+                </div>
+                <div class="form-group col-6">
+                  <label for="role">Role</label>
+                  <select class="form-control" id="role" name="role" value="<?= old('role'); ?>">
+                    <option value="1">Super Admin</option>
+                    <option value="2">Admin</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    please fill in your role
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-6">
+                  <label for="password" class="d-block">Password</label>
+                  <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator"
+                    name="password" tabindex="2" required>
+                  <div class="invalid-feedback">
+                    please fill in your password
+                  </div>
+                  <div id="pwindicator" class="pwindicator">
+                    <div class="bar"></div>
+                    <div class="label"></div>
+                  </div>
+                </div>
+                <div class="form-group col-6">
+                  <label for="password2" class="d-block">Password Confirmation</label>
+                  <input id="password2" type="password" class="form-control" name="password2" tabindex="2" required>
+                  <div class="invalid-feedback">
+                    please fill in your password confirmation
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                  Register
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </section>
-  </div>
-
-  <?= $this->include('layouts/scripts') ?>
-</body>
-
-</html>
+    </div>
+</div>
+</div>
+</section>
+</div>
+<?= $this->endSection() ?>

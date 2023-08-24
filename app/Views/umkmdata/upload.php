@@ -34,8 +34,8 @@
                             </div>
                             <div class="mb-3">
                                 <label for="fotoktp" class="form-label">Foto KTP<span class="required">*</span></label>
-                                <input type="text" class="form-control" id="fotoktp" name="fotoktp"
-                                    value="<?= old('fotoktp'); ?>" style="height: 100px; vertical-align: top;">
+                                <input type="file" class="form-control" id="fotoktp" name="fotoktp"
+                                    style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
                                 <label for="jns_kelamin" class="form-label">Kelamin<span class="required">*</span></label>

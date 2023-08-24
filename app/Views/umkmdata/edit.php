@@ -13,6 +13,13 @@
                 </div>
                 <div class="card-body">
                     <div class="card-body table-responsivey">
+                        <?php if (!empty(session()->getFlashdata('error'))): ?>
+                            <div class="alert alert-danger" role="alert">
+                                <h4>Periksa Entrian Form</h4>
+                                </hr />
+                                <?php echo session()->getFlashdata('error'); ?>
+                            </div>
+                        <?php endif; ?>
                         <form method="post" action="<?= base_url(); ?>/umkmdata/update/<?= $umkmdata['id'] ?>"
                             enctype="multipart/form-data">
                             <?= csrf_field(); ?>
@@ -28,12 +35,13 @@
                             </div>
                             <div class="mb-3">
                                 <label for="fotoktp" class="form-label">Foto KTP<span class="required">*</span></label>
-                                <input type="text" class="form-control" id="fotoktp" name="fotoktp"
+                                <input type="file" class="form-control" id="fotoktp" name="fotoktp"
                                     value="<?= $umkmdata['fotoktp'] ?>" style="height: 100px; vertical-align: top;">
                             </div>
                             <div class="mb-3">
-                                <label for="kelamin" class="form-label">Kelamin<span class="required">*</span></label>
-                                <select class="form-control" id="kelamin" name="kelamin">
+                                <label for="jns_kelamin" class="form-label">Kelamin<span
+                                        class="required">*</span></label>
+                                <select class="form-control" id="jns_kelamin" name="jns_kelamin">
                                     <option value="Laki-Laki" <?= ($umkmdata['jns_kelamin'] == 'Laki-Laki') ? 'selected' : ''; ?>>Laki-laki</option>
                                     <option value="Perempuan" <?= ($umkmdata['jns_kelamin'] == 'Perempuan') ? 'selected' : ''; ?>>Perempuan</option>
                                 </select>
